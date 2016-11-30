@@ -1,0 +1,15 @@
+{
+  "name": "notepadjs",
+  "version": "1.0.0",
+  "description": "Simple notes API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Juan Manuel Mougan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
