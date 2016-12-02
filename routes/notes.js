@@ -1,10 +1,29 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("GET /notes");
-  res.send(JSON.stringify({ title: "Sample note" }));
+  res.json({ title: 'Sample note' });
+});
+
+router.post('/', function(req, res, next) {
+  console.log("POST /notes");
+  res.json({ title: 'Will create a note' });
+});
+
+router.get('/:note_id', function(req, res, next) {
+  console.log("GET /notes");
+  res.json({ title: 'Note with ID: ' + req.params.note_id });
+});
+
+router.put('/:note_id', function(req, res, next) {
+  console.log("PUT /notes");
+  res.json({ title: 'Will update note with ID: ' + req.params.note_id });
+});
+
+router.delete('/:note_id', function(req, res, next) {
+  console.log("DELETE /notes");
+  res.json({ title: 'Will delete note with ID: ' + req.params.note_id });
 });
 
 module.exports = router;
