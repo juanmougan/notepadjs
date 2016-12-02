@@ -7,9 +7,7 @@ app.use('/notes', notes_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  console.log("Error")
-  console.log(req)
-  console.log(res)
+  console.log("404 error")
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
