@@ -9,7 +9,7 @@ describe("Health check", function() {
   	  console.log("lalalalala POR DOS");
   	  url = base_url + "health";
   	  console.log("URL: " + url);
-  	  // request.get(url, function(error, response, body) {
+  	  
   	  request.get(url, function(error, response, body) {
   	    console.log("Request a: " + url);
   	    console.log("Error: " + error);
@@ -21,6 +21,17 @@ describe("Health check", function() {
   	    server.closeServer();
   	    done();
   	  });
+
+  	/*
+      request
+        .get(url)
+  		.on('response', function(response) {
+          console.log(response.statusCode) // 200
+          expect(response.statusCode).toBe(200);
+          console.log(response.body)
+        });
+    */
+
   	});
   });
 });
