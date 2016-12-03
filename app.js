@@ -1,9 +1,11 @@
 var express = require('express');
 var notes_router = require('./routes/notes');
+var health_router = require('./routes/health');
 
 var app = express();
 
 app.use('/notes', notes_router);
+app.use('/health', health_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -26,3 +28,8 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+exports.closeServer = function() {
+  var server = app.listen(process.env.PORT || 3000);
+  server.close();
+};
