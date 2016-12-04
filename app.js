@@ -3,6 +3,10 @@ var notes_router = require('./routes/notes');
 
 var app = express();
 
+// TODO move this elsewhere
+var mongoose   = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/notepadjs');
+
 // Routes
 app.use('/notes', notes_router);
 
