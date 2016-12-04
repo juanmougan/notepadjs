@@ -3,7 +3,11 @@ var notes_router = require('./routes/notes');
 
 var app = express();
 
+// Routes
 app.use('/notes', notes_router);
+
+// Models
+var Note = require('./models/note');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
