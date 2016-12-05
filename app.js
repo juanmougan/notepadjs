@@ -5,13 +5,20 @@ var app = express();
 
 // TODO move this elsewhere
 var mongoose   = require('mongoose');
+// var connect = mongoose.connect('mongodb://localhost:27017/notepadjs');
 mongoose.connect('mongodb://localhost:27017/notepadjs');
-
-// Routes
-app.use('/notes', notes_router);
+var db = mongoose.connection;
+// db.on('disconnect', connect); // auto reconnecting
+db.on('error', function(err) {
+    debug('connection error:', err);
+});
+// module.exports = db;
 
 // Models
 var Note = require('./models/note');
+
+// Routes
+app.use('/notes', notes_router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,7 +3,12 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   console.log("GET /notes");
-  res.json({ title: 'Sample note' });
+  Note.find(function(err, notes) {
+    if (err) {
+      res.send(err);
+    }
+    res.json(notes);
+  });
 });
 
 router.post('/', function(req, res, next) {
